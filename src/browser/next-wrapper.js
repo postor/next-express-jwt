@@ -13,7 +13,6 @@ export default (config = {}) => {
     class JwtWrapper extends Component {
       constructor(props) {
         super(props)
-        console.log({ props })
       }
 
       render() {
