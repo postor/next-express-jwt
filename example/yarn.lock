@@ -3263,9 +3263,9 @@ netrc@^0.1.4:
   version "0.1.4"
   resolved "http://registry.npm.taobao.org/netrc/download/netrc-0.1.4.tgz#6be94fcaca8d77ade0a9670dc460914c94472444"
 
-next-express-jwt@^1.0.0:
-  version "1.0.0"
-  resolved "http://registry.npm.taobao.org/next-express-jwt/download/next-express-jwt-1.0.0.tgz#887aa24847848ae30578693f05714e2f21f9ab1c"
+next-express-jwt@^1.0.1:
+  version "1.0.1"
+  resolved "http://registry.npm.taobao.org/next-express-jwt/download/next-express-jwt-1.0.1.tgz#500aa00c6569d13a7e227302e8490af07e7eec5e"
   dependencies:
     express "^4.16.2"
     jsonwebtoken "^8.1.1"

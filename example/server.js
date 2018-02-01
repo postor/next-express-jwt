@@ -4,7 +4,7 @@ const express = require('express')
 const next = require('next')
 const cookieParser = require('cookie-parser')
 const bodyParser = require('body-parser')
-const jwt = require('next-express-jwt/dist/server').default({
+const jwt = require('next-express-jwt').server({
   "secret": "test-secret"
 })
 

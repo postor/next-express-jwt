@@ -1,3 +1,3 @@
-import jwt from 'next-express-jwt/dist/browser'
+import { browser } from 'next-express-jwt'
 
-export const { Provider, connect, wrapper } = jwt()
+export const { Provider, connect, wrapper } = browser()
