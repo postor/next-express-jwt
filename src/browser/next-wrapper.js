@@ -24,7 +24,16 @@ export default (config = {}) => {
 
       static async getInitialProps(ctx) {
         const jwtUser = await asAsync(serverSiderGetUser, null, [ctx])
-        return { jwtUser }
+
+        let rtn = {}
+        if (Page.getInitialProps) {
+          rtn = await Page.getInitialProps(ctx)
+        }
+
+        return {
+          ...rtn,
+          jwtUser
+        }
       }
     }
 

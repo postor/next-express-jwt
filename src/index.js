@@ -1,9 +1,2 @@
-import server from './server'
-import browser from './browser'
-
-export default (config) => {
-  return {
-    ...server(config),
-    ...browser(config),
-  }
-}
+export { default as server } from './server'
+export { default as browser } from './browser'

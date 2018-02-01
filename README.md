@@ -160,3 +160,20 @@ server.get('/api/authed', jwt.guard(), async (req, res) => {
   res.json({ user })
 })
 ```
+
+## run example
+
+```
+git clone https://github.com/postor/next-express-jwt.git
+cd next-express-jwt/example
+yarn && yarn start
+```
+
+then open http://localhost:3000
+
+
+## api documents
+
+[server side](./documents/server.md)
+
+[browser side](./documents/browser.md)
