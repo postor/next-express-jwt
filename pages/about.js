@@ -3,7 +3,7 @@ import { wrapper } from '../components/jwt'
 import User from '../components/User'
 
 const Index = (props) => (<div>
-  <Link href="/about"><a>about</a></Link>
+  <Link href="/"><a>index</a></Link>
   <User />
   {props.keys && (<ul>
     {props.keys.map((x, i) => (<li key={i}>{x}</li>))}

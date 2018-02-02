@@ -1,12 +1,16 @@
 import React, { Component, Children } from 'react'
 import PropTypes from 'prop-types'
 
+const isServerSide = typeof window == 'undefined'
+
 export default (config = {}) => {
 
   const {
     parserMethodName = 'getUser',
     cookieName = 'jwt',
   } = config
+
+  let jwtUser = undefined
 
   class Provider extends Component {
     static childContextTypes = {
@@ -21,6 +25,17 @@ export default (config = {}) => {
       this.state = {
         user,
       }
+
+      //prisist state from cache
+      if (!isServerSide) {
+        if (user) {
+          jwtUser = user
+        } else {
+          this.state = {
+            user: jwtUser
+          }
+        }
+      }
     }
 
     render() {
@@ -29,10 +44,14 @@ export default (config = {}) => {
 
     getChildContext() {
       const { user } = this.state
-      const jwt_setUser = (user) => this.setState({ user, })
+      const jwt_setUser = (user) => {
+        this.setState({ user, })
+        jwtUser = user
+      }
       const jwt_clean = () => {
         document.cookie = `${cookieName}=`
         this.setState({ user: undefined })
+        jwtUser = undefined
       }
 
       return {

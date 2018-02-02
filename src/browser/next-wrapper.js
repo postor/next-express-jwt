@@ -43,7 +43,9 @@ export default (config = {}) => {
 
   async function defaultServerSideGetUser(ctx) {
     const { req } = ctx
-
+    if (!req) {
+      return undefined
+    }
     const user = await req[parserMethodName]()
     if (!user) {
       return undefined
