@@ -1,5 +1,5 @@
 import { Component } from 'react'
-import connect from '../src/browser/connect'
+import { connect } from './jwt'
 import request from 'superagent'
 
 class User extends Component {
