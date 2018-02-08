@@ -72,9 +72,9 @@ just use login api to get user info and token, then store user and set token to 
 使用登录接口获取用户信息和token并保存，并将token保存到cookie
 
 
-you can choose to use redux, or you can use `Provider` and `connect` from `browser`, do not use both
+you can choose to use redux, or you can use `Provider` and `connect` from `browser`, do not use both. redux example: https://github.com/nextjs-boilerplate/next-express-redux-i18n
 
-如果你不使用redux，可以使用这里提供的 Provider 和 connect，如果你使用了redux就不要使用这两个了
+如果你不使用redux，可以使用这里提供的 Provider 和 connect，如果你使用了redux就不要使用这两个了. redux 实例参考: https://github.com/nextjs-boilerplate/next-express-redux-i18n
 
 components/jwt.js
 
@@ -152,7 +152,9 @@ export default connect(User)
 
 `wrapper` will wrap page into `Provider` and  auto parse user for `Provider`, you can refer [wrapper](./documents/browser.md#wrapper)
 
-before that let's config jwt for browser side
+`wrapper` 会自动提供 `Provider` 并从cookie匹配用户信息给 `Provider` , 具体参考 [wrapper](./documents/browser.md#wrapper)
+
+first of all let's config jwt for browser side | 首先配置浏览器端的jwt
 
 components/jwt.js
 
@@ -161,7 +163,7 @@ import jwt from 'next-express-jwt/dist/browser'
 export const { Provider, connect, wrapper } = jwt()
 ```
 
-then page
+then page | 然后是页面
 
 pages/index.js
 
@@ -176,7 +178,9 @@ const Index = () => (<div>
 export default wrapper(Index)
 ```
 
-if you use redux you have to handle the ssr part by yourself, maybe something like
+if you use redux you have to handle the ssr part for user by yourself, maybe something like
+
+如果你使用redux，用户的服务端渲染部分需要你自己处理，类似这样
 
 ```
 Page.getInitialProps(ctx) {
@@ -188,7 +192,13 @@ Page.getInitialProps(ctx) {
 }
 ```
 
-### 7.allow only authed users for some api
+redux example: https://github.com/nextjs-boilerplate/next-express-redux-i18n
+
+redux 实例参考: https://github.com/nextjs-boilerplate/next-express-redux-i18n
+
+### 7.allow only authed users for some api | 接口的身份认证
+
+使用`jwt.guard()`拦截未登录的用户，具体参考 [guard](./documents/server.md#guard)
 
 server.js
 
@@ -200,7 +210,7 @@ server.get('/api/authed', jwt.guard(), async (req, res) => {
 })
 ```
 
-## run example
+## run example | 本地体验
 
 ```
 git clone https://github.com/postor/next-express-jwt.git
@@ -211,8 +221,8 @@ yarn && yarn start
 then open http://localhost:3000
 
 
-## api documents
+## api documents | 接口说明
 
-[server side](./documents/server.md)
+[server side | 服务端](./documents/server.md)
 
-[browser side](./documents/browser.md)
+[browser side | 浏览器端](./documents/browser.md)
