@@ -1,7 +1,7 @@
 {
   "name": "next-express-jwt",
-  "version": "1.0.2",
-  "description": "jwt with less headache on express and next.js, support ssr with cookie.",
+  "version": "1.0.3",
+  "description": "make jwt easier on express and next.js, support ssr with cookie.  让jwt在express和next.js更方便使用，通过cookie支持服务端渲染",
   "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
