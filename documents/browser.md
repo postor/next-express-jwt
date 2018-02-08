@@ -28,7 +28,7 @@ const { Provider, connect, wrapper } = browser({
 
 ## wrapper
 
-wrap your next.js page and ssr is ready
+wrap your next.js page into Provider and user for ssr is ready, custom user data through `browser({serverSiderGetUser:userfn(ctx)})`, you need to keep the user data the same as browser login
 
 ```
 const { wrapper } = browser()
