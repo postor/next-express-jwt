@@ -21,7 +21,7 @@ class User extends Component {
     return (<div>
       <p>hi, {username}|<a onClick={() => {
         clean()
-      }}>登出</a></p>
+      }}>logout</a></p>
     </div>)
 
   }
@@ -43,7 +43,7 @@ class User extends Component {
         })} />
       </p>
       <p><button onClick={() => this.login()}>login</button></p>
-      <p>test:123</p>
+      <p>default user: <br /> test:123</p>
     </div>)
   }
 

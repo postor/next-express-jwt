@@ -1,13 +1,10 @@
 import Link from 'next/link'
 import { wrapper } from '../components/jwt'
-import User from '../components/User'
+import User from '../components/UserHook'
 
 const Index = (props) => (<div>
   <Link href="/about"><a>about</a></Link>
   <User />
-  {props.keys && (<ul>
-    {props.keys.map((x, i) => (<li key={i}>{x}</li>))}
-  </ul>)}
 </div>)
 
 Index.getInitialProps = (ctx) => {

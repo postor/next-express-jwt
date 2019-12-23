@@ -6,7 +6,6 @@ const isServerSide = typeof window == 'undefined'
 export default (config = {}) => {
 
   const {
-    parserMethodName = 'getUser',
     cookieName = 'jwt',
   } = config
 

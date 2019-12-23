@@ -6,8 +6,8 @@ export default (config = {}) => {
   return (option = {}) => {
     const {
       onGuardValid = (req, res, next, user) => {
-      next()
-    },
+        next()
+      },
       onGuardInvalid = (req, res, next) => {
         res.json({ error: 'you need to login first!' })
       }

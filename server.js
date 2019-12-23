@@ -1,4 +1,3 @@
-require('babel-polyfill')
 const Server = require('http').Server
 const express = require('express')
 const next = require('next')
@@ -47,8 +46,12 @@ app.prepare()
       res.json({ user })
     })
 
-    server.get('*', (req, res) => {
-      return handle(req, res)
+    const noneAnonymousRoutes = ['/about']
+    server.get('*', async (req, res) => {
+      if (!noneAnonymousRoutes.includes(req.url)) return handle(req, res)
+      const user = await req.getUser()
+      if (user) return handle(req, res)
+      return res.redirect('/')
     })
 
     server.listen(port, (err) => {
