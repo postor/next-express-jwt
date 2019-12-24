@@ -1,10 +1,8 @@
-require('babel-polyfill')
-const Server = require('http').Server
 const express = require('express')
 const next = require('next')
 const cookieParser = require('cookie-parser')
 const bodyParser = require('body-parser')
-const jwt = require('next-express-jwt').server({
+const jwt = require('next-express-jwt/dist/server').default({
   "secret": "test-secret"
 })
 
@@ -40,14 +38,24 @@ app.prepare()
       }
     })
 
-    //use guard to prevent anonymous call
+    //use guard to prevent anonymous API call
     server.get('/api/authed', jwt.guard(), async (req, res) => {
       //after jwt.parser you can get user through req.getUser (req[config.parserMethodName] if not default config)
       const user = await req.getUser()
       res.json({ user })
     })
 
-    server.get('*', (req, res) => {
+    // use guard to prevent anonymous page
+    server.get('/about'
+      , jwt.guard({
+        onGuardInvalid: (req, res) => res.redirect('/')
+      })
+      , (req, res) => {
+        return handle(req, res)
+      }
+    )
+    
+    server.get('*', async (req, res) => {
       return handle(req, res)
     })
 
