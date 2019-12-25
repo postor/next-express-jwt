@@ -4,6 +4,8 @@ make jwt easier on express and next.js, support ssr with cookie.
 
 让jwt在express和next.js更方便使用，通过cookie支持服务端渲染
 
+quick glance: https://www.youtube.com/watch?v=oDBTKbwDf_0&list=PLM1v95K5B1ntVsYvNJIxgRPppngrO_X4s
+
 ## usage | 使用
 
 ### 1.based on a working next.js with express | 基于一个工作的express+next.js环境
