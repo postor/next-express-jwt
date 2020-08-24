@@ -1,6 +1,6 @@
 {
   "name": "next-express-jwt",
-  "version": "1.0.4",
+  "version": "1.0.7",
   "description": "make jwt easier on express and next.js, support ssr with cookie.  让jwt在express和next.js更方便使用，通过cookie支持服务端渲染",
   "main": "dist/index.js",
   "scripts": {
@@ -20,23 +20,23 @@
   },
   "homepage": "https://github.com/postor/next-express-jwt#readme",
   "dependencies": {
-    "@babel/plugin-transform-runtime": "^7.7.6",
-    "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
-    "next": "^9.1.6",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "throttle-debounce": "^2.1.0"
+    "throttle-debounce": "^2.3.0"
   },
   "devDependencies": {
-    "@babel/cli": "^7.7.7",
-    "@babel/core": "^7.7.7",
-    "@babel/plugin-proposal-class-properties": "^7.7.4",
-    "@babel/plugin-transform-regenerator": "^7.7.5",
-    "@babel/preset-env": "^7.7.7",
-    "@babel/preset-react": "^7.7.4",
-    "body-parser": "^1.18.2",
-    "cookie-parser": "^1.4.3",
-    "superagent": "^3.8.2"
+    "@babel/cli": "^7.10.5",
+    "@babel/core": "^7.11.4",
+    "@babel/plugin-proposal-class-properties": "^7.10.4",
+    "@babel/plugin-transform-regenerator": "^7.10.4",
+    "@babel/plugin-transform-runtime": "^7.11.0",
+    "@babel/preset-env": "^7.11.0",
+    "@babel/preset-react": "^7.10.4",
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.5",
+    "express": "^4.17.1",
+    "next": "^9.5.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "superagent": "^6.0.0"
   }
 }
